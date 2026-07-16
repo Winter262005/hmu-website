@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Muted Dusty Color Palette V2 */
+  --color-primary: #334155;      /* Primary Slate Gray */
+  --color-secondary: #5F7065;    /* Sage Green */
+  --color-accent: #5C7CFA;       /* Soft Blue Accent */
+  --color-success: #16A34A;      /* Success Green */
+  
+  --color-bg-light: #FAFAF8;     /* Off-White Background */
+  --color-card-light: #FFFFFF;   /* Pure White Surface */
+  --color-text-light: #0F172A;   /* Slate Text */
+  --color-text-muted-light: #6B7280; /* Muted Text */
+  --color-border-light: #E6E6E3; /* Border Gray */
+
+  --color-bg-dark: #121213;      /* Dark Background */
+  --color-card-dark: #19191B;    /* Soft Dark Surface */
+  --color-text-dark: #EDEDE9;    /* Dark Theme Text */
+  --color-text-muted-dark: #9A9B9F; /* Dark Theme Muted Text */
+  --color-border-dark: #2A2A2E;  /* Dark Theme Border */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    letter-spacing: -0.01em;
+    font-size: 125%;
+  }
+  
+  body {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+    font-family: var(--font-sans);
+    line-height: 1.625; /* More line height */
+    transition: background-color 0.4s ease, color 0.4s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .dark body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em; /* Increase letter spacing slightly for headings */
+    font-weight: 500; /* Avoid heavy bold everywhere */
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8D8D3;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #333336;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #BEBEB9;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #444448;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+section {
+  scroll-margin-top: 6rem;
+}
