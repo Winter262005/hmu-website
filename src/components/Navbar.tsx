@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
@@ -20,7 +20,7 @@ const LOGO_SPRING = { type: 'spring' as const, stiffness: 220, damping: 32, mass
 // The transition is embedded PER VARIANT so each direction can orchestrate its
 // children differently.  delayChildren on "bar" ensures children only start
 // fading in once the container spring has advanced enough.
-const headerVariants = {
+const headerVariants: Variants = {
   bar: {
     width:        '94vw' as unknown as number,
     maxWidth:     900,
@@ -44,13 +44,13 @@ const headerVariants = {
 // ─── Child variants — opacity only ───────────────────────────────────────────
 // No explicit `animate` on the child motion elements; they inherit the parent's
 // `animate` key ("bar" | "pill") via Framer Motion variant propagation.
-const childVariants = {
+const childVariants: Variants = {
   bar:  { opacity: 1, transition: { duration: 0.22, ease: [0, 0, 0.2, 1] } },
   pill: { opacity: 0, transition: { duration: 0.10, ease: [0.4, 0, 1, 1] } },
 };
 
 // Wordmark also slides slightly on collapse
-const wordmarkVariants = {
+const wordmarkVariants: Variants = {
   bar:  { opacity: 1, x: 0,  transition: { duration: 0.22, ease: [0, 0, 0.2, 1] } },
   pill: { opacity: 0, x: -6, transition: { duration: 0.10, ease: [0.4, 0, 1, 1] } },
 };
