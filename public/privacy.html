@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for HitMeUp for GitHub extension. 100% Zero-Knowledge cryptographic privacy policy.">
+  <title>Privacy Policy - HitMeUp for GitHub</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --bg-light: #FAFAF8;
+      --card-light: #FFFFFF;
+      --text-light: #0F172A;
+      --text-muted-light: #6B7280;
+      --border-light: #E6E6E3;
+      --primary: #334155;
+      --accent: #5C7CFA;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 125%; /* 125% scale up */
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-light);
+      font-family: var(--font-sans);
+      line-height: 1.625;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 5rem;
+    }
+
+    /* Navigation Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-light);
+      height: 4rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-container {
+      max-width: 50rem;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-group {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-light);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-item {
+      font-size: 0.6rem;
+      font-weight: 500;
+      color: var(--text-muted-light);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease;
+    }
+
+    .nav-item:hover, .nav-item.active {
+      color: var(--text-light);
+    }
+
+    .btn-header {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      font-weight: 600;
+      background-color: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 0.4rem;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-header:hover {
+      background-color: #1e293b;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 50rem;
+      width: 100%;
+      margin: 4rem auto 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .markdown-body {
+      background-color: var(--card-light);
+      border: 1px solid var(--border-light);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      text-align: left;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .last-updated {
+      font-size: 0.6rem;
+      color: var(--text-muted-light);
+      margin-bottom: 2rem;
+    }
+
+    blockquote {
+      background-color: var(--bg-light);
+      border-left: 3px solid var(--primary);
+      padding: 1rem;
+      border-radius: 0.4rem;
+      font-size: 0.65rem;
+      color: var(--text-muted-light);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: -0.01em;
+      border-top: 1px solid var(--border-light);
+      padding-top: 1.5rem;
+    }
+
+    p, ul {
+      font-size: 0.65rem;
+      color: var(--text-muted-light);
+      margin-bottom: 1.2rem;
+      line-height: 1.625;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    li {
+      margin-bottom: 0.6rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      max-width: 50rem;
+      width: 100%;
+      margin: 4rem auto 0 auto;
+      padding: 2rem 1.5rem 0 1.5rem;
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.55rem;
+      color: var(--text-muted-light);
+    }
+
+    .footer-links a {
+      color: var(--text-muted-light);
+      margin-left: 1rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="header-container">
+      <a href="index.html" class="logo-group">
+        HitMeUp
+      </a>
+      <nav>
+        <a href="index.html#features" class="nav-item">Features</a>
+        <a href="index.html#pricing" class="nav-item">Pricing</a>
+        <a href="privacy.html" class="nav-item active">Privacy Policy</a>
+        <a href="index.html#download" class="btn-header">Install Extension</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    <div class="markdown-body">
+      <h1>Privacy Policy</h1>
+      <p class="last-updated">Last updated: May 30, 2026</p>
+      
+      <blockquote>
+        <strong>TL;DR:</strong> HitMeUp is designed with zero-knowledge cryptography. Encrypted messages are encrypted locally on the user's device before transmission. We do not possess the cryptographic keys required to decrypt these messages.
+      </blockquote>
+
+      <h2>1. Information We Collect</h2>
+      <p>HitMeUp is built to prioritize developer privacy. HitMeUp accesses only the GitHub account information necessary for authentication and user identification, such as username and GitHub user ID. The only data processed and stored on our servers is:</p>
+      <ul>
+        <li><strong>OAuth Authentication details:</strong> We authenticate users via GitHub OAuth. We store your public GitHub username and GitHub ID to route messages. We never access your repository code, passwords, or personal credentials.</li>
+        <li><strong>Encrypted Message Ciphertext:</strong> We store message payloads in a database so they can be retrieved by recipients. These payloads are encrypted using AES-256-GCM. We have no mechanism to decrypt these payloads because we do not have access to your private key.</li>
+        <li><strong>Encrypted Backup Vault Blobs:</strong> If you use the backup vault, we store a ciphertext containing your private key (encrypted locally with a key derived from your custom PIN via PBKDF2 with 600,000 iterations). We cannot decrypt this backup.</li>
+        <li><strong>Public Keys:</strong> We store your public ECDH keys so that other users can initiate encrypted communication channels with you.</li>
+      </ul>
+
+      <h2>2. Cryptographic Architecture</h2>
+      <p>We ensure data security by performing all encryption/decryption operations on-device using the native browser <strong>Web Crypto API</strong>:</p>
+      <ul>
+        <li><strong>ECDH (P-256):</strong> Elliptic Curve Diffie-Hellman is used to derive a shared symmetric key between two users.</li>
+        <li><strong>AES-256-GCM:</strong> Used to encrypt each message. A new random Initialization Vector (IV) is generated for every message.</li>
+        <li><strong>PBKDF2:</strong> Key derivation with 600,000 iterations and a random salt is used to secure your private key when stored in the backup vault.</li>
+      </ul>
+
+      <h2>3. Data Deletion and Control</h2>
+      <p>The extension stores cryptographic keys, session information, and application preferences locally using Chrome extension storage. Removing the extension typically removes locally stored extension data, including locally cached cryptographic material.</p>
+      <p>Users may contact us to request deletion of server-stored account data.</p>
+
+      <h2>4. Changes to This Policy</h2>
+      <p>We will notify users of any material changes to this Privacy Policy by updating the "Last updated" date above. Since we do not collect email addresses, we encourage you to review this page periodically.</p>
+
+      <h2>5. Contact Us</h2>
+      <p>If you have questions about this policy, please contact us at:</p>
+      <ul>
+        <li>Email: shubhampc262005@gmail.com</li>
+        <li>Website: soon...</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div>
+      © 2026 <strong>HitMeUp</strong>. Not affiliated with GitHub Inc.
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+  </footer>
+
+</body>
+</html>
