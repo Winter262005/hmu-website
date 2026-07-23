@@ -58,7 +58,7 @@ export default function Footer() {
                 <a href="#faq" className="text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark transition-colors">FAQ</a>
               </li>
               <li>
-                <a href="mailto:support@hitmeup.app" className="text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark transition-colors">Support Contact</a>
+                <a href="mailto:founder@hitmeupfg.co.in" className="text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark transition-colors">Support Contact</a>
               </li>
             </ul>
           </div>
