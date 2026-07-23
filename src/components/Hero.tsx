@@ -34,7 +34,9 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             >
               <a
-                href="#download"
+                href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-5 py-3 text-xs font-semibold rounded-lg bg-primary hover:bg-primary/95 text-white dark:bg-text-dark dark:hover:bg-text-dark/95 dark:text-zinc-950 transition-colors shadow-sm"
               >
                 Install Extension

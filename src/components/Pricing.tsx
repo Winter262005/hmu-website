@@ -1,4 +1,4 @@
-import { Check } from 'lucide-react';
+import { Check, Clock } from 'lucide-react';
 
 const freeFeatures = [
   'Unlimited Direct Messaging',
@@ -58,7 +58,9 @@ export default function Pricing() {
 
             <div className="mt-10">
               <a
-                href="#download"
+                href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold rounded-lg bg-zinc-100 dark:bg-zinc-800 text-text-light dark:text-text-dark hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
               >
                 Get Started
@@ -68,9 +70,10 @@ export default function Pricing() {
 
           {/* Pro Card */}
           <div className="bg-white dark:bg-zinc-900 border-2 border-primary dark:border-text-dark rounded-2xl p-8 flex flex-col justify-between shadow-sm relative">
-            {/* Recommended Badge */}
-            <div className="absolute top-4 right-4 bg-primary text-white dark:bg-text-dark dark:text-zinc-950 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
-              Popular
+            {/* Coming Soon Badge */}
+            <div className="absolute top-4 right-4 bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400 text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded flex items-center gap-1">
+              <Clock className="h-2.5 w-2.5" />
+              Coming Soon
             </div>
 
             <div className="text-left">
@@ -92,13 +95,20 @@ export default function Pricing() {
               </ul>
             </div>
 
-            <div className="mt-10">
-              <a
-                href="#download"
-                className="w-full inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold rounded-lg bg-primary hover:bg-primary/95 text-white dark:bg-text-dark dark:hover:bg-text-dark/95 dark:text-zinc-950 transition-colors shadow-sm"
+            <div className="mt-10 group relative">
+              <button
+                disabled
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-lg bg-zinc-100 dark:bg-zinc-800 text-text-muted-light dark:text-text-muted-dark cursor-not-allowed opacity-70 transition-colors select-none"
+                aria-label="Pro plan coming soon"
               >
-                Upgrade to Pro
-              </a>
+                <Clock className="h-3.5 w-3.5 shrink-0" />
+                Coming Soon
+              </button>
+              {/* Tooltip */}
+              <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-max max-w-[14rem] rounded-lg bg-zinc-900 dark:bg-zinc-700 text-white text-[10px] leading-relaxed px-3 py-2 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg z-10">
+                Pro is coming soon — stay tuned!
+                <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-zinc-900 dark:border-t-zinc-700" />
+              </div>
             </div>
           </div>
 

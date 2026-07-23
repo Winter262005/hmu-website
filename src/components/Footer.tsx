@@ -35,7 +35,14 @@ export default function Footer() {
                 <a href="#pricing" className="text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark transition-colors">Pricing</a>
               </li>
               <li>
-                <a href="#download" className="text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark transition-colors font-medium">Install Extension</a>
+                <a
+                  href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark transition-colors font-medium"
+                >
+                  Install Extension
+                </a>
               </li>
             </ul>
           </div>
