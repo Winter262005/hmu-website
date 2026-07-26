@@ -65,15 +65,17 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { name: 'Features', href: '#features'     },
-    { name: 'Pricing',  href: '#pricing'       },
-    { name: 'Docs',     href: '#documentation' },
+    { name: 'Features', href: '#features', id: 'lnk-nav-features' },
+    { name: 'Pricing',  href: '#pricing', id: 'lnk-nav-pricing' },
+    { name: 'Guide',     href: '/welcome/index.html', id: 'lnk-nav-guide' },
   ];
 
   const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const el = document.getElementById(href.replace('#', ''));
-    if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 72, behavior: 'smooth' });
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const el = document.getElementById(href.replace('#', ''));
+      if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - 72, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -97,6 +99,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
 
         {/* ─── Logo — independent spring on `left`, not part of variant propagation ─── */}
         <motion.a
+          id="lnk-brand-nav"
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
           // Explicit `animate` object (not a variant key) → not affected by parent variants.
@@ -125,14 +128,15 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
           HitMeUp
         </motion.span>
 
-        {/* ─── Centre nav links ────────────────────────────────────────────────── */}
+        {/* ─── Centre nav links — hidden on mobile ─── */}
         <motion.nav
           variants={childVariants}
           style={{ pointerEvents: scrolled ? 'none' : 'auto' }}
-          className="absolute inset-0 flex items-center justify-center gap-8 z-10"
+          className="absolute inset-0 hidden md:flex items-center justify-center gap-8 z-10"
         >
           {navLinks.map((link) => (
             <a
+              id={link.id}
               key={link.name}
               href={link.href}
               onClick={(e) => scrollTo(e, link.href)}
@@ -145,13 +149,14 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
           ))}
         </motion.nav>
 
-        {/* ─── Right: dark-mode toggle + CTA ──────────────────────────────────── */}
+        {/* ─── Right: dark-mode toggle + CTA ─── */}
         <motion.div
           variants={childVariants}
           style={{ pointerEvents: scrolled ? 'none' : 'auto' }}
           className="absolute right-4 top-0 bottom-0 flex items-center gap-2.5 z-30"
         >
           <button
+            id="btn-theme-toggle"
             onClick={() => setDarkMode(!darkMode)}
             className="w-10 h-10 rounded-lg flex items-center justify-center
                        text-zinc-400 dark:text-zinc-500
@@ -163,6 +168,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
           </button>
 
           <a
+            id="lnk-install-chrome-nav"
             href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo"
             target="_blank"
             rel="noopener noreferrer"

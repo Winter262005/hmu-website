@@ -1,115 +1,180 @@
-import { useRef } from 'react';
-import { ChevronLeft, ChevronRight, MessageSquare, Users, Key, AlertTriangle } from 'lucide-react';
+import { useRef, useState } from 'react';
+import { ChevronLeft, ChevronRight, MessageSquare, Users, Key, Lock, Shield, Settings } from 'lucide-react';
 
 const mockScreens = [
   {
     type: 'dm',
-    title: 'Private End-to-End Encrypted DMs',
-    description: 'Message developers right on their GitHub profiles. Keys are generated locally and never leave your browser.',
+    title: 'Injected Profile Direct Messaging',
+    description: 'Adds a secure E2EE chat drawer directly into GitHub user profile pages. Cryptographic keys are generated locally and never leave your sandbox.',
     icon: MessageSquare,
-    badge: 'Secure DMs',
+    badge: 'Actual Product UI: Profile Chat',
+    url: 'github.com/octocat',
     content: (
-      <div className="flex-1 flex flex-col h-full bg-zinc-50 dark:bg-zinc-950 text-left text-xs font-sans">
-        <div className="px-4 py-3 bg-white dark:bg-zinc-900 border-b border-border-light dark:border-border-dark flex justify-between items-center shadow-sm">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-text-light dark:text-text-dark">@octo_dev</span>
-            <span className="text-[9px] bg-secondary/10 text-secondary px-1.5 py-0.5 rounded font-medium">E2EE Active</span>
+      <div className="flex-1 flex flex-col h-full bg-zinc-50 dark:bg-zinc-950 text-left text-xs font-sans relative">
+        
+        {/* GitHub Injected Profile Mockup */}
+        <div className="flex-1 p-3.5 flex flex-col justify-between overflow-y-auto select-none bg-white dark:bg-zinc-900 pr-[10.5rem] transition-colors duration-300">
+          <div>
+            {/* GitHub Top bar */}
+            <div className="flex items-center gap-1.5 pb-2 mb-3 border-b border-border-light dark:border-border-dark">
+              <span className="w-3.5 h-3.5 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-[7px]">🐱</span>
+              <div className="h-1.5 w-16 bg-zinc-200 dark:bg-zinc-800 rounded"></div>
+            </div>
+
+            {/* Profile Info */}
+            <div className="flex gap-2 items-center">
+              <div className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-border-light dark:border-border-dark flex items-center justify-center text-sm shadow-sm">🐙</div>
+              <div>
+                <h4 className="font-semibold text-[10px] text-text-light dark:text-text-dark leading-tight">The Octocat</h4>
+                <p className="text-[8px] text-text-muted-light dark:text-text-muted-dark leading-none">octocat</p>
+              </div>
+            </div>
+
+            {/* Injected Secure Chat Button */}
+            <div className="mt-3 flex gap-1.5">
+              <div className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-[8px] border border-border-light dark:border-border-dark text-text-muted-light dark:text-text-muted-dark">Follow</div>
+              <div className="px-2 py-0.5 rounded bg-secondary/15 text-secondary border border-secondary/20 dark:bg-secondary/20 dark:text-zinc-200 text-[8px] font-semibold flex items-center gap-0.5">
+                <Lock className="h-2 w-2" /> Message
+              </div>
+            </div>
+            
+            {/* Tabs */}
+            <div className="mt-4 border-b border-border-light dark:border-border-dark pb-1 text-[8px] flex gap-2 text-text-muted-light dark:text-text-muted-dark font-medium">
+              <span className="text-text-light dark:text-text-dark border-b-2 border-[#FD8C73] pb-1">Overview</span>
+              <span>Repositories (12)</span>
+            </div>
           </div>
-          <span className="text-[10px] text-text-muted-light dark:text-text-muted-dark">Online</span>
         </div>
-        <div className="flex-1 p-4 flex flex-col gap-3 overflow-y-auto max-h-[18.75rem]">
-          <div className="self-start max-w-[80%] bg-zinc-200/80 dark:bg-zinc-800/80 p-2.5 rounded-lg rounded-tl-none text-text-light dark:text-text-dark">
-            Hey! I saw your pull request on the parser. Looks solid!
+
+        {/* Injected E2EE Sidebar Drawer */}
+        <div className="absolute right-0 top-0 bottom-0 w-[10.5rem] bg-[#FAFAF8] dark:bg-zinc-950 border-l border-border-light dark:border-border-dark flex flex-col z-20 shadow-lg transition-colors duration-300">
+          <div className="px-2 py-1.5 bg-white dark:bg-zinc-900 border-b border-border-light dark:border-border-dark flex items-center justify-between shrink-0">
+            <span className="font-bold text-[8px] text-text-light dark:text-text-dark truncate">octocat (E2EE)</span>
+            <span className="text-[6px] bg-secondary/15 text-secondary px-1 py-0.2 rounded font-bold uppercase">Active</span>
           </div>
-          <div className="self-end max-w-[80%] bg-primary text-white dark:bg-text-dark dark:text-zinc-950 p-2.5 rounded-lg rounded-tr-none">
-            Thanks! Do you want to schedule a quick sync to review the compiler outputs?
+          
+          <div className="flex-1 p-2 flex flex-col gap-2 overflow-y-auto max-h-[10.5rem] no-scrollbar">
+            <div className="self-start max-w-[90%] bg-white dark:bg-zinc-800 border border-border-light dark:border-border-dark p-1.5 rounded-lg rounded-tl-none text-[8px] text-text-light dark:text-text-dark leading-relaxed">
+              Check out the parser build outputs. Looks clean!
+            </div>
+            <div className="self-end max-w-[90%] bg-primary text-white dark:bg-text-dark dark:text-zinc-950 p-1.5 rounded-lg rounded-tr-none text-[8px] leading-relaxed">
+              Great! Syncing changes now.
+            </div>
           </div>
-          <div className="self-start max-w-[80%] bg-zinc-200/80 dark:bg-zinc-800/80 p-2.5 rounded-lg rounded-tl-none text-text-light dark:text-text-dark">
-            Sure, let's connect tomorrow morning. Send me your availability.
+          
+          <div className="p-1.5 border-t border-border-light dark:border-border-dark bg-white dark:bg-zinc-900">
+            <div className="bg-bg-light dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded px-1 py-0.5 flex gap-1 items-center">
+              <input readOnly value="Awesome!" className="flex-1 bg-transparent text-[8px] text-text-light dark:text-text-dark focus:outline-none select-none" />
+              <button className="bg-primary text-white dark:bg-text-dark dark:text-zinc-950 text-[7px] font-semibold px-1 py-0.2 rounded shadow-sm">Send</button>
+            </div>
           </div>
         </div>
-        <div className="p-3 bg-white dark:bg-zinc-900 border-t border-border-light dark:border-border-dark flex gap-2">
-          <input readOnly value="Awesome, I'll send a slot soon." className="flex-1 bg-zinc-50 dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded px-3 py-1.5 text-xs text-text-light dark:text-text-dark focus:outline-none" />
-          <button className="bg-primary text-white dark:bg-text-dark dark:text-zinc-950 px-3 py-1.5 rounded font-medium text-xs">Send</button>
-        </div>
+
       </div>
     ),
   },
   {
     type: 'group',
-    title: 'Repository-Linked Group Chats',
-    description: 'Automatically join chatrooms associated with any public or private GitHub repository to align with project members.',
+    title: 'Repository Group Channels',
+    description: 'Injects automated group chat tabs into GitHub repositories. Discuss bugs, pull requests, and commits securely with the codebase contributors.',
     icon: Users,
-    badge: 'Repo Channels',
+    badge: 'Actual Product UI: Repository Chat',
+    url: 'github.com/facebook/react',
     content: (
-      <div className="flex-1 flex flex-col h-full bg-zinc-50 dark:bg-zinc-950 text-left text-xs font-sans">
-        <div className="px-4 py-3 bg-white dark:bg-zinc-900 border-b border-border-light dark:border-border-dark flex justify-between items-center shadow-sm">
+      <div className="flex-1 flex flex-col h-full bg-zinc-50 dark:bg-zinc-950 text-left text-xs font-sans relative">
+        
+        {/* GitHub Injected Repo Page Mockup */}
+        <div className="flex-1 p-3.5 flex flex-col justify-between overflow-y-auto select-none bg-white dark:bg-zinc-900 pr-[10.5rem] transition-colors duration-300">
           <div>
-            <span className="font-semibold text-text-light dark:text-text-dark">facebook/react</span>
-            <span className="text-[9px] text-text-muted-light dark:text-text-muted-dark ml-2">#general</span>
-          </div>
-          <span className="text-[10px] text-text-muted-light dark:text-text-muted-dark">12 members</span>
-        </div>
-        <div className="flex-1 p-4 flex flex-col gap-3 overflow-y-auto max-h-[18.75rem]">
-          <div className="self-start max-w-[85%] bg-zinc-200/80 dark:bg-zinc-800/80 p-2.5 rounded-lg rounded-tl-none text-text-light dark:text-text-dark">
-            <span className="font-bold text-[9px] block text-secondary mb-1">@dan_abramov</span>
-            We need to check the concurrent rendering issues in React 19.
-          </div>
-          {/* PR Card link mock */}
-          <div className="self-start max-w-[85%] bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark rounded-lg p-2.5 flex items-center justify-between shadow-sm">
-            <div className="flex items-center gap-2.5">
-              <div className="text-secondary font-bold bg-secondary/10 p-1.5 rounded text-[10px]">PR</div>
-              <div>
-                <span className="font-semibold text-text-light dark:text-text-dark block">#29402 Fix Concurrent UI hangs</span>
-                <span className="text-[9px] text-text-muted-light dark:text-text-muted-dark">Opened by @acdlite</span>
-              </div>
+            {/* GitHub Repo Title Header */}
+            <div className="flex items-center gap-1 pb-2 border-b border-border-light dark:border-border-dark">
+              <div className="w-3.5 h-3.5 bg-zinc-100 dark:bg-zinc-800 rounded flex items-center justify-center text-[7px]">📖</div>
+              <span className="text-[9px] font-bold text-accent">facebook/react</span>
+              <span className="text-[7px] bg-zinc-100 dark:bg-zinc-800 border border-border-light dark:border-border-dark px-1 rounded ml-1.5 font-medium text-text-muted-light dark:text-text-muted-dark">Public</span>
             </div>
-            <a href="#" className="text-[10px] text-primary dark:text-text-dark font-semibold hover:underline">View PR</a>
-          </div>
-          <div className="self-end max-w-[85%] bg-primary text-white dark:bg-text-dark dark:text-zinc-950 p-2.5 rounded-lg rounded-tr-none">
-            I'll review the concurrent schedules and run profiling metrics.
+
+            {/* Repo code tabs */}
+            <div className="mt-3 flex gap-2 text-[8px] font-semibold text-text-muted-light dark:text-text-muted-dark pb-1 border-b border-border-light dark:border-border-dark">
+              <span className="text-text-light dark:text-text-dark border-b-2 border-[#FD8C73] pb-1">Code</span>
+              <span>Issues (430)</span>
+              <span>Pull Requests (12)</span>
+            </div>
+
+            {/* PR Mock */}
+            <div className="mt-3 p-2 border border-border-light dark:border-border-dark rounded bg-bg-light/40 dark:bg-zinc-950/20">
+              <div className="text-[8px] font-semibold text-text-light dark:text-text-dark">#29402 Fix Concurrent UI hangs</div>
+              <p className="text-[7px] text-text-muted-light dark:text-text-muted-dark mt-0.5">Opened by @acdlite</p>
+            </div>
           </div>
         </div>
-        <div className="p-3 bg-white dark:bg-zinc-900 border-t border-border-light dark:border-border-dark flex gap-2">
-          <input readOnly value="Checking issue tracker..." className="flex-1 bg-zinc-50 dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded px-3 py-1.5 text-xs text-text-light dark:text-text-dark focus:outline-none" />
-          <button className="bg-primary text-white dark:bg-text-dark dark:text-zinc-950 px-3 py-1.5 rounded font-medium text-xs">Send</button>
+
+        {/* Injected E2EE Sidebar Drawer */}
+        <div className="absolute right-0 top-0 bottom-0 w-[10.5rem] bg-[#FAFAF8] dark:bg-zinc-950 border-l border-border-light dark:border-border-dark flex flex-col z-20 shadow-lg transition-colors duration-300">
+          <div className="px-2 py-1.5 bg-white dark:bg-zinc-900 border-b border-border-light dark:border-border-dark flex items-center justify-between shrink-0">
+            <span className="font-bold text-[8px] text-text-light dark:text-text-dark truncate">react-general (E2EE)</span>
+            <span className="text-[7px] text-text-muted-light dark:text-text-muted-dark font-medium scale-90">12 active</span>
+          </div>
+          
+          <div className="flex-1 p-2 flex flex-col gap-2 overflow-y-auto max-h-[10.5rem] no-scrollbar">
+            <div className="self-start max-w-[90%] bg-white dark:bg-zinc-800 border border-border-light dark:border-border-dark p-1.5 rounded-lg rounded-tl-none text-[8px] text-text-light dark:text-text-dark leading-relaxed">
+              <span className="font-bold text-[7px] text-secondary block">@dan_abramov</span>
+              Concurrent rendering is looking solid in build.
+            </div>
+            <div className="self-end max-w-[90%] bg-primary text-white dark:bg-text-dark dark:text-zinc-950 p-1.5 rounded-lg rounded-tr-none text-[8px] leading-relaxed">
+              Agreed, running profiling.
+            </div>
+          </div>
+          
+          <div className="p-1.5 border-t border-border-light dark:border-border-dark bg-white dark:bg-zinc-900">
+            <div className="bg-bg-light dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded px-1 py-0.5 flex gap-1 items-center">
+              <input readOnly value="Running tests..." className="flex-1 bg-transparent text-[8px] text-text-light dark:text-text-dark focus:outline-none select-none" />
+              <button className="bg-primary text-white dark:bg-text-dark dark:text-zinc-950 text-[7px] font-semibold px-1 py-0.2 rounded shadow-sm">Send</button>
+            </div>
+          </div>
         </div>
+
       </div>
     ),
   },
   {
     type: 'security',
-    title: 'Backup Vault Security Settings',
-    description: 'Export and encrypt your private cryptographic keys. Protect them with a local PIN and 600,000-iteration PBKDF2 vault sync.',
+    title: 'Backup Vault Settings',
+    description: 'Features a dedicated local dashboard inside the extension options. Sync keys securely across other browsers with 600,000-iteration PBKDF2 vault encryption.',
     icon: Key,
-    badge: 'Vault Controls',
+    badge: 'Actual Product UI: Security Settings',
+    url: 'chrome-extension://hitmeup/options.html',
     content: (
-      <div className="flex-1 flex flex-col h-full bg-zinc-50 dark:bg-zinc-950 text-left text-xs font-sans p-5">
-        <div className="bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark rounded-xl p-4 flex flex-col gap-4 shadow-sm">
-          <div className="flex items-center gap-3">
+      <div className="flex-1 flex flex-col h-full bg-zinc-50 dark:bg-zinc-950 text-left text-xs font-sans p-4 transition-colors duration-300">
+        <div className="bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark rounded-xl p-3 flex flex-col gap-3 shadow-sm transition-colors duration-300">
+          
+          {/* Header */}
+          <div className="flex items-center gap-2">
             <div className="text-secondary">
-              <Key className="h-5 w-5" />
+              <Settings className="h-4.5 w-4.5" />
             </div>
             <div>
-              <h4 className="font-semibold text-xs text-text-light dark:text-text-dark">Private Key Sync & Backup</h4>
-              <p className="text-[10px] text-text-muted-light dark:text-text-muted-dark">Securely sync keys to other browser sessions.</p>
+              <h4 className="font-semibold text-[10px] text-text-light dark:text-text-dark leading-tight">Cryptographic Vault Options</h4>
+              <p className="text-[8px] text-text-muted-light dark:text-text-muted-dark leading-none mt-0.5">Secure local key sync and backups.</p>
             </div>
           </div>
-          
-          <div className="bg-zinc-100 dark:bg-zinc-800 border border-border-light dark:border-border-dark text-text-muted-light dark:text-text-muted-dark p-3 rounded-lg flex items-start gap-2 text-[10px] leading-relaxed">
-            <AlertTriangle className="h-4 w-4 shrink-0 text-text-muted-light dark:text-text-muted-dark mt-0.5" />
-            <span>Never share your Backup PIN. We do not store your PIN on our servers and cannot recover it if lost.</span>
+
+          {/* Secure Warning banner */}
+          <div className="bg-secondary/5 dark:bg-zinc-950 border border-border-light dark:border-border-dark text-text-muted-light dark:text-text-muted-dark p-2 rounded-lg flex items-start gap-1.5 text-[8px] leading-normal">
+            <Shield className="h-3.5 w-3.5 shrink-0 text-secondary mt-0.2 animate-none" />
+            <span>Passphrases never contact our database. Vault syncing uses locally derived salt and PBKDF2 keys. Keep your PIN safe.</span>
           </div>
 
+          {/* Password box */}
           <div className="flex flex-col gap-1">
-            <label className="text-[9px] font-bold text-text-muted-light dark:text-text-muted-dark">ENTER SECURE BACKUP PIN</label>
-            <div className="flex gap-2">
-              <input type="password" value="••••••••" readOnly className="bg-zinc-50 dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded px-3 py-1.5 text-xs text-text-light dark:text-text-dark flex-1" />
-              <button className="bg-primary hover:bg-primary/95 text-white dark:bg-text-dark dark:text-zinc-950 font-semibold px-4 py-1.5 rounded transition-colors text-xs shadow-sm">
-                Upload Backup
+            <label className="text-[7px] font-bold text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider">Secure Backup PIN</label>
+            <div className="flex gap-1.5">
+              <input type="password" value="••••••••" readOnly className="bg-bg-light dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded px-2.5 py-1 text-[9px] text-text-light dark:text-text-dark flex-1 select-none" />
+              <button className="bg-primary hover:bg-primary/95 text-white dark:bg-text-dark dark:text-zinc-950 font-semibold px-3 py-1 rounded transition-colors text-[8px] shadow-sm">
+                Upload Vault
               </button>
             </div>
           </div>
+
         </div>
       </div>
     ),
@@ -118,12 +183,23 @@ const mockScreens = [
 
 export default function Screenshots() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const { scrollLeft, clientWidth } = scrollRef.current;
       const scrollTo = direction === 'left' ? scrollLeft - clientWidth * 0.8 : scrollLeft + clientWidth * 0.8;
       scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    }
+  };
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const index = Math.round(scrollLeft / clientWidth);
+      if (index >= 0 && index < mockScreens.length) {
+        setActiveIndex(index);
+      }
     }
   };
 
@@ -135,15 +211,17 @@ export default function Screenshots() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20">
           <div className="text-left max-w-2xl">
             <h2 className="font-display font-semibold text-2xl sm:text-3xl tracking-tight text-text-light dark:text-text-dark mb-4">
-              Designed to Blend Perfectly Into GitHub
+              Integrated Seamlessly Inside GitHub
             </h2>
             <p className="font-sans text-sm text-text-muted-light dark:text-text-muted-dark leading-relaxed">
-              Take a look at how HitMeUp brings real-time encrypted communications to your profile pages, repository codebases, and developer tools.
+              Explore how the HitMeUp browser extension operates natively inside the GitHub interface, injecting direct communication tools without disrupting your coding workspace.
             </p>
           </div>
+          
           {/* Scroll Buttons */}
           <div className="hidden md:flex gap-3 mt-6 md:mt-0">
             <button
+              id="btn-carousel-left"
               onClick={() => scroll('left')}
               className="p-2 rounded bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors shadow-sm"
               aria-label="Scroll left"
@@ -151,6 +229,7 @@ export default function Screenshots() {
               <ChevronLeft className="h-4.5 w-4.5" />
             </button>
             <button
+              id="btn-carousel-right"
               onClick={() => scroll('right')}
               className="p-2 rounded bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors shadow-sm"
               aria-label="Scroll right"
@@ -163,6 +242,7 @@ export default function Screenshots() {
         {/* Horizontal Carousel */}
         <div
           ref={scrollRef}
+          onScroll={handleScroll}
           className="flex gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4"
         >
           {mockScreens.map((screen, idx) => {
@@ -180,8 +260,8 @@ export default function Screenshots() {
                   </p>
                 </div>
 
-                {/* Simulated Browser Frame */}
-                <div className="border border-border-light dark:border-border-dark rounded-xl overflow-hidden bg-white dark:bg-zinc-900 flex flex-col">
+                {/* Simulated Browser Frame (GitHub page) */}
+                <div className="border border-border-light dark:border-border-dark rounded-xl overflow-hidden bg-white dark:bg-zinc-900 flex flex-col shadow-sm">
                   {/* Top bar */}
                   <div className="bg-[#FAF9F6] dark:bg-zinc-950 px-4 py-2 border-b border-border-light dark:border-border-dark flex items-center justify-between">
                     <div className="flex gap-1.5">
@@ -190,13 +270,13 @@ export default function Screenshots() {
                       <span className="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-800 block"></span>
                     </div>
                     <div className="text-[9px] font-mono text-text-muted-light dark:text-text-muted-dark bg-white dark:bg-zinc-900 px-2 py-0.5 border border-border-light dark:border-border-dark rounded">
-                      hitmeup.app/dashboard
+                      {screen.url}
                     </div>
                     <div className="w-8"></div>
                   </div>
                   
                   {/* Simulated Content */}
-                  <div className="h-64 flex flex-col">
+                  <div className="h-64 flex flex-col bg-zinc-50 dark:bg-zinc-950">
                     {screen.content}
                   </div>
                 </div>
@@ -204,6 +284,28 @@ export default function Screenshots() {
             );
           })}
         </div>
+
+        {/* Carousel Indicator Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {mockScreens.map((_, idx) => (
+            <button
+              id={`btn-carousel-dot-${idx}`}
+              key={idx}
+              onClick={() => {
+                if (scrollRef.current) {
+                  const clientWidth = scrollRef.current.clientWidth;
+                  scrollRef.current.scrollTo({ left: idx * (clientWidth + 32), behavior: 'smooth' });
+                  setActiveIndex(idx);
+                }
+              }}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                activeIndex === idx ? 'w-6 bg-primary dark:bg-text-dark' : 'bg-zinc-300 dark:bg-zinc-700'
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+
       </div>
     </section>
   );

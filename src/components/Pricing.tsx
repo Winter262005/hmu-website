@@ -58,6 +58,7 @@ export default function Pricing() {
 
             <div className="mt-10">
               <a
+                id="btn-pricing-free-start"
                 href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -97,6 +98,7 @@ export default function Pricing() {
 
             <div className="mt-10 group relative">
               <button
+                id="btn-pricing-pro-disabled"
                 disabled
                 className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-lg bg-zinc-100 dark:bg-zinc-800 text-text-muted-light dark:text-text-muted-dark cursor-not-allowed opacity-70 transition-colors select-none"
                 aria-label="Pro plan coming soon"

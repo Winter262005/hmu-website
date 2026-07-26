@@ -56,6 +56,7 @@ export default function FAQ() {
                 className="bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm transition-colors"
               >
                 <button
+                  id={`btn-faq-item-${idx}`}
                   onClick={() => toggleFAQ(idx)}
                   className="w-full px-6 py-5 flex items-center justify-between gap-4 font-display font-medium text-text-light dark:text-text-dark text-sm sm:text-base hover:text-primary dark:hover:text-primary transition-colors text-left"
                 >
