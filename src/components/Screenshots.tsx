@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, MessageSquare, Users, Key, Lock, Shield, Settings } from 'lucide-react';
+import { ChevronLeft, ChevronRight, MessageSquare, Users, Key, Lock, Shield, Settings, User, Folder } from 'lucide-react';
 
 const mockScreens = [
   {
@@ -7,25 +7,28 @@ const mockScreens = [
     title: 'Injected Profile Direct Messaging',
     description: 'Adds a secure E2EE chat drawer directly into GitHub user profile pages. Cryptographic keys are generated locally and never leave your sandbox.',
     icon: MessageSquare,
-    badge: 'Actual Product UI: Profile Chat',
     url: 'github.com/octocat',
     content: (
-      <div className="flex-1 flex flex-col h-full bg-zinc-50 dark:bg-zinc-950 text-left text-xs font-sans relative">
+      <div className="flex-1 flex flex-col h-full bg-bg-light dark:bg-bg-dark text-left text-xs font-sans relative">
         
         {/* GitHub Injected Profile Mockup */}
-        <div className="flex-1 p-3.5 flex flex-col justify-between overflow-y-auto select-none bg-white dark:bg-zinc-900 pr-[10.5rem] transition-colors duration-300">
+        <div className="flex-1 p-3.5 flex flex-col justify-between overflow-y-auto select-none bg-white dark:bg-card-dark pr-[10.5rem] transition-colors duration-300">
           <div>
             {/* GitHub Top bar */}
             <div className="flex items-center gap-1.5 pb-2 mb-3 border-b border-border-light dark:border-border-dark">
-              <span className="w-3.5 h-3.5 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-[7px]">🐱</span>
+              <div className="w-4 h-4 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center shrink-0">
+                <User className="h-2 w-2 text-zinc-500" />
+              </div>
               <div className="h-1.5 w-16 bg-zinc-200 dark:bg-zinc-800 rounded"></div>
             </div>
 
             {/* Profile Info */}
             <div className="flex gap-2 items-center">
-              <div className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-border-light dark:border-border-dark flex items-center justify-center text-sm shadow-sm">🐙</div>
+              <div className="w-8 h-8 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-border-light dark:border-border-dark flex items-center justify-center shadow-sm text-zinc-500">
+                <User className="h-4 w-4" />
+              </div>
               <div>
-                <h4 className="font-semibold text-[10px] text-text-light dark:text-text-dark leading-tight">The Octocat</h4>
+                <h4 className="font-semibold text-[10px] text-text-light dark:text-text-dark leading-tight font-display">The Octocat</h4>
                 <p className="text-[8px] text-text-muted-light dark:text-text-muted-dark leading-none">octocat</p>
               </div>
             </div>
@@ -47,10 +50,9 @@ const mockScreens = [
         </div>
 
         {/* Injected E2EE Sidebar Drawer */}
-        <div className="absolute right-0 top-0 bottom-0 w-[10.5rem] bg-[#FAFAF8] dark:bg-zinc-950 border-l border-border-light dark:border-border-dark flex flex-col z-20 shadow-lg transition-colors duration-300">
-          <div className="px-2 py-1.5 bg-white dark:bg-zinc-900 border-b border-border-light dark:border-border-dark flex items-center justify-between shrink-0">
+        <div className="absolute right-0 top-0 bottom-0 w-[10.5rem] bg-[#FAFAF8] dark:bg-bg-dark border-l border-border-light dark:border-border-dark flex flex-col z-20 shadow-lg transition-colors duration-300">
+          <div className="px-2 py-1.5 bg-white dark:bg-card-dark border-b border-border-light dark:border-border-dark flex items-center justify-between shrink-0">
             <span className="font-bold text-[8px] text-text-light dark:text-text-dark truncate">octocat (E2EE)</span>
-            <span className="text-[6px] bg-secondary/15 text-secondary px-1 py-0.2 rounded font-bold uppercase">Active</span>
           </div>
           
           <div className="flex-1 p-2 flex flex-col gap-2 overflow-y-auto max-h-[10.5rem] no-scrollbar">
@@ -62,8 +64,8 @@ const mockScreens = [
             </div>
           </div>
           
-          <div className="p-1.5 border-t border-border-light dark:border-border-dark bg-white dark:bg-zinc-900">
-            <div className="bg-bg-light dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded px-1 py-0.5 flex gap-1 items-center">
+          <div className="p-1.5 border-t border-border-light dark:border-border-dark bg-white dark:bg-card-dark">
+            <div className="bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded px-1 py-0.5 flex gap-1 items-center">
               <input readOnly value="Awesome!" className="flex-1 bg-transparent text-[8px] text-text-light dark:text-text-dark focus:outline-none select-none" />
               <button className="bg-primary text-white dark:bg-text-dark dark:text-zinc-950 text-[7px] font-semibold px-1 py-0.2 rounded shadow-sm">Send</button>
             </div>
@@ -78,17 +80,18 @@ const mockScreens = [
     title: 'Repository Group Channels',
     description: 'Injects automated group chat tabs into GitHub repositories. Discuss bugs, pull requests, and commits securely with the codebase contributors.',
     icon: Users,
-    badge: 'Actual Product UI: Repository Chat',
     url: 'github.com/facebook/react',
     content: (
-      <div className="flex-1 flex flex-col h-full bg-zinc-50 dark:bg-zinc-950 text-left text-xs font-sans relative">
+      <div className="flex-1 flex flex-col h-full bg-bg-light dark:bg-bg-dark text-left text-xs font-sans relative">
         
         {/* GitHub Injected Repo Page Mockup */}
-        <div className="flex-1 p-3.5 flex flex-col justify-between overflow-y-auto select-none bg-white dark:bg-zinc-900 pr-[10.5rem] transition-colors duration-300">
+        <div className="flex-1 p-3.5 flex flex-col justify-between overflow-y-auto select-none bg-white dark:bg-card-dark pr-[10.5rem] transition-colors duration-300">
           <div>
             {/* GitHub Repo Title Header */}
             <div className="flex items-center gap-1 pb-2 border-b border-border-light dark:border-border-dark">
-              <div className="w-3.5 h-3.5 bg-zinc-100 dark:bg-zinc-800 rounded flex items-center justify-center text-[7px]">📖</div>
+              <div className="w-3.5 h-3.5 bg-zinc-100 dark:bg-zinc-800 rounded flex items-center justify-center shrink-0">
+                <Folder className="h-2.5 w-2.5 text-zinc-500" />
+              </div>
               <span className="text-[9px] font-bold text-accent">facebook/react</span>
               <span className="text-[7px] bg-zinc-100 dark:bg-zinc-800 border border-border-light dark:border-border-dark px-1 rounded ml-1.5 font-medium text-text-muted-light dark:text-text-muted-dark">Public</span>
             </div>
@@ -101,7 +104,7 @@ const mockScreens = [
             </div>
 
             {/* PR Mock */}
-            <div className="mt-3 p-2 border border-border-light dark:border-border-dark rounded bg-bg-light/40 dark:bg-zinc-950/20">
+            <div className="mt-3 p-2 border border-border-light dark:border-border-dark rounded bg-bg-light/40 dark:bg-bg-dark/20">
               <div className="text-[8px] font-semibold text-text-light dark:text-text-dark">#29402 Fix Concurrent UI hangs</div>
               <p className="text-[7px] text-text-muted-light dark:text-text-muted-dark mt-0.5">Opened by @acdlite</p>
             </div>
@@ -109,10 +112,9 @@ const mockScreens = [
         </div>
 
         {/* Injected E2EE Sidebar Drawer */}
-        <div className="absolute right-0 top-0 bottom-0 w-[10.5rem] bg-[#FAFAF8] dark:bg-zinc-950 border-l border-border-light dark:border-border-dark flex flex-col z-20 shadow-lg transition-colors duration-300">
-          <div className="px-2 py-1.5 bg-white dark:bg-zinc-900 border-b border-border-light dark:border-border-dark flex items-center justify-between shrink-0">
+        <div className="absolute right-0 top-0 bottom-0 w-[10.5rem] bg-[#FAFAF8] dark:bg-bg-dark border-l border-border-light dark:border-border-dark flex flex-col z-20 shadow-lg transition-colors duration-300">
+          <div className="px-2 py-1.5 bg-white dark:bg-card-dark border-b border-border-light dark:border-border-dark flex items-center justify-between shrink-0">
             <span className="font-bold text-[8px] text-text-light dark:text-text-dark truncate">react-general (E2EE)</span>
-            <span className="text-[7px] text-text-muted-light dark:text-text-muted-dark font-medium scale-90">12 active</span>
           </div>
           
           <div className="flex-1 p-2 flex flex-col gap-2 overflow-y-auto max-h-[10.5rem] no-scrollbar">
@@ -125,8 +127,8 @@ const mockScreens = [
             </div>
           </div>
           
-          <div className="p-1.5 border-t border-border-light dark:border-border-dark bg-white dark:bg-zinc-900">
-            <div className="bg-bg-light dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded px-1 py-0.5 flex gap-1 items-center">
+          <div className="p-1.5 border-t border-border-light dark:border-border-dark bg-white dark:bg-card-dark">
+            <div className="bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded px-1 py-0.5 flex gap-1 items-center">
               <input readOnly value="Running tests..." className="flex-1 bg-transparent text-[8px] text-text-light dark:text-text-dark focus:outline-none select-none" />
               <button className="bg-primary text-white dark:bg-text-dark dark:text-zinc-950 text-[7px] font-semibold px-1 py-0.2 rounded shadow-sm">Send</button>
             </div>
@@ -141,11 +143,10 @@ const mockScreens = [
     title: 'Backup Vault Settings',
     description: 'Features a dedicated local dashboard inside the extension options. Sync keys securely across other browsers with 600,000-iteration PBKDF2 vault encryption.',
     icon: Key,
-    badge: 'Actual Product UI: Security Settings',
     url: 'chrome-extension://hitmeup/options.html',
     content: (
-      <div className="flex-1 flex flex-col h-full bg-zinc-50 dark:bg-zinc-950 text-left text-xs font-sans p-4 transition-colors duration-300">
-        <div className="bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark rounded-xl p-3 flex flex-col gap-3 shadow-sm transition-colors duration-300">
+      <div className="flex-1 flex flex-col h-full bg-bg-light dark:bg-bg-dark text-left text-xs font-sans p-4 transition-colors duration-300">
+        <div className="bg-white dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl p-3 flex flex-col gap-3 shadow-sm transition-colors duration-300">
           
           {/* Header */}
           <div className="flex items-center gap-2">
@@ -153,14 +154,14 @@ const mockScreens = [
               <Settings className="h-4.5 w-4.5" />
             </div>
             <div>
-              <h4 className="font-semibold text-[10px] text-text-light dark:text-text-dark leading-tight">Cryptographic Vault Options</h4>
+              <h4 className="font-semibold text-[10px] text-text-light dark:text-text-dark leading-tight font-display">Cryptographic Vault Options</h4>
               <p className="text-[8px] text-text-muted-light dark:text-text-muted-dark leading-none mt-0.5">Secure local key sync and backups.</p>
             </div>
           </div>
 
           {/* Secure Warning banner */}
-          <div className="bg-secondary/5 dark:bg-zinc-950 border border-border-light dark:border-border-dark text-text-muted-light dark:text-text-muted-dark p-2 rounded-lg flex items-start gap-1.5 text-[8px] leading-normal">
-            <Shield className="h-3.5 w-3.5 shrink-0 text-secondary mt-0.2 animate-none" />
+          <div className="bg-secondary/5 dark:bg-bg-dark border border-border-light dark:border-border-dark text-text-muted-light dark:text-text-muted-dark p-2 rounded-lg flex items-start gap-1.5 text-[8px] leading-normal">
+            <Shield className="h-3.5 w-3.5 shrink-0 text-secondary mt-0.2" />
             <span>Passphrases never contact our database. Vault syncing uses locally derived salt and PBKDF2 keys. Keep your PIN safe.</span>
           </div>
 
@@ -168,7 +169,7 @@ const mockScreens = [
           <div className="flex flex-col gap-1">
             <label className="text-[7px] font-bold text-text-muted-light dark:text-text-muted-dark uppercase tracking-wider">Secure Backup PIN</label>
             <div className="flex gap-1.5">
-              <input type="password" value="••••••••" readOnly className="bg-bg-light dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded px-2.5 py-1 text-[9px] text-text-light dark:text-text-dark flex-1 select-none" />
+              <input type="password" value="••••••••" readOnly className="bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded px-2.5 py-1 text-[9px] text-text-light dark:text-text-dark flex-1 select-none" />
               <button className="bg-primary hover:bg-primary/95 text-white dark:bg-text-dark dark:text-zinc-950 font-semibold px-3 py-1 rounded transition-colors text-[8px] shadow-sm">
                 Upload Vault
               </button>
@@ -223,7 +224,7 @@ export default function Screenshots() {
             <button
               id="btn-carousel-left"
               onClick={() => scroll('left')}
-              className="p-2 rounded bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors shadow-sm"
+              className="p-2 rounded bg-white dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-bg-light dark:hover:bg-bg-dark transition-colors shadow-sm cursor-pointer"
               aria-label="Scroll left"
             >
               <ChevronLeft className="h-4.5 w-4.5" />
@@ -231,7 +232,7 @@ export default function Screenshots() {
             <button
               id="btn-carousel-right"
               onClick={() => scroll('right')}
-              className="p-2 rounded bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors shadow-sm"
+              className="p-2 rounded bg-white dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-bg-light dark:hover:bg-bg-dark transition-colors shadow-sm cursor-pointer"
               aria-label="Scroll right"
             >
               <ChevronRight className="h-4.5 w-4.5" />
@@ -249,34 +250,33 @@ export default function Screenshots() {
             return (
               <div
                 key={idx}
-                className="w-full md:w-[36.25rem] shrink-0 snap-start bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark rounded-2xl p-6 md:p-8 shadow-sm flex flex-col gap-6"
+                className="w-full md:w-[36.25rem] shrink-0 snap-start bg-white dark:bg-card-dark border border-border-light dark:border-border-dark rounded-2xl p-6 md:p-8 shadow-sm flex flex-col gap-6"
               >
                 {/* Header */}
                 <div className="text-left border-b border-border-light dark:border-border-dark pb-5">
-                  <span className="text-[10px] font-bold text-secondary uppercase tracking-wider">{screen.badge}</span>
                   <h3 className="font-display font-semibold text-lg text-text-light dark:text-text-dark mt-1">{screen.title}</h3>
-                  <p className="text-xs text-text-muted-light dark:text-text-muted-dark leading-relaxed mt-2">
+                  <p className="text-xs text-text-muted-light dark:text-text-muted-dark leading-relaxed mt-2 font-sans">
                     {screen.description}
                   </p>
                 </div>
 
                 {/* Simulated Browser Frame (GitHub page) */}
-                <div className="border border-border-light dark:border-border-dark rounded-xl overflow-hidden bg-white dark:bg-zinc-900 flex flex-col shadow-sm">
+                <div className="border border-border-light dark:border-border-dark rounded-xl overflow-hidden bg-white dark:bg-card-dark flex flex-col shadow-sm">
                   {/* Top bar */}
-                  <div className="bg-[#FAF9F6] dark:bg-zinc-950 px-4 py-2 border-b border-border-light dark:border-border-dark flex items-center justify-between">
+                  <div className="bg-[#FAF9F6] dark:bg-bg-dark px-4 py-2 border-b border-border-light dark:border-border-dark flex items-center justify-between">
                     <div className="flex gap-1.5">
                       <span className="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-800 block"></span>
                       <span className="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-800 block"></span>
                       <span className="w-2 h-2 rounded-full bg-zinc-300 dark:bg-zinc-800 block"></span>
                     </div>
-                    <div className="text-[9px] font-mono text-text-muted-light dark:text-text-muted-dark bg-white dark:bg-zinc-900 px-2 py-0.5 border border-border-light dark:border-border-dark rounded">
+                    <div className="text-[9px] font-mono text-text-muted-light dark:text-text-muted-dark bg-white dark:bg-card-dark px-2 py-0.5 border border-border-light dark:border-border-dark rounded">
                       {screen.url}
                     </div>
                     <div className="w-8"></div>
                   </div>
                   
                   {/* Simulated Content */}
-                  <div className="h-64 flex flex-col bg-zinc-50 dark:bg-zinc-950">
+                  <div className="h-64 flex flex-col bg-bg-light dark:bg-bg-dark">
                     {screen.content}
                   </div>
                 </div>
@@ -298,7 +298,7 @@ export default function Screenshots() {
                   setActiveIndex(idx);
                 }
               }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
                 activeIndex === idx ? 'w-6 bg-primary dark:bg-text-dark' : 'bg-zinc-300 dark:bg-zinc-700'
               }`}
               aria-label={`Go to slide ${idx + 1}`}

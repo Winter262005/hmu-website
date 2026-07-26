@@ -38,7 +38,7 @@ function App() {
 
   return (
     <ReactLenis root options={lenisOptions}>
-      <div className="min-h-screen bg-bg-light text-text-light dark:bg-zinc-950 dark:text-text-dark font-sans antialiased transition-colors duration-300">
+      <div className="min-h-screen bg-bg-light text-text-light dark:bg-bg-dark dark:text-text-dark font-sans antialiased transition-colors duration-300">
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         
         <main>

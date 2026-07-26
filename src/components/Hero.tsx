@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Lock, Shield, Send } from 'lucide-react';
+import { ArrowRight, Lock, User, Send } from 'lucide-react';
 
 interface Message {
   id: number;
@@ -31,7 +31,7 @@ const scenario = [
   },
   {
     action: 'message',
-    data: { id: 3, sender: 'shubhampc', text: "Exactly. The Diffie-Hellman keys are generated on-device, so it's 100% E2EE. 🔐", time: "11:25 AM", isMe: true }
+    data: { id: 3, sender: 'shubhampc', text: "Exactly. The Diffie-Hellman keys are generated on-device, so it's 100% E2EE.", time: "11:25 AM", isMe: true }
   },
   {
     action: 'typing',
@@ -40,7 +40,7 @@ const scenario = [
   },
   {
     action: 'message',
-    data: { id: 4, sender: 'octocat', text: "Amazing! Let's pull up the PR and look at the logs together. 🚀", time: "11:26 AM", isMe: false }
+    data: { id: 4, sender: 'octocat', text: "Amazing! Let's pull up the PR and look at the logs together.", time: "11:26 AM", isMe: false }
   }
 ];
 
@@ -86,11 +86,9 @@ export default function Hero() {
   }, [step]);
 
   return (
-    <section className="relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28 md:pt-40 md:pb-32 bg-bg-light dark:bg-zinc-950 transition-colors duration-300">
+    <section className="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 md:pt-44 md:pb-36 bg-bg-light dark:bg-bg-dark transition-colors duration-300">
       
-      {/* Premium Visual Aesthetics: Ambient Glowing Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[35rem] h-[35rem] rounded-full bg-accent/8 dark:bg-accent/5 blur-[120px] pointer-events-none z-0"></div>
-      <div className="absolute top-1/2 right-1/4 translate-x-1/2 translate-y-1/2 w-[30rem] h-[30rem] rounded-full bg-secondary/8 dark:bg-secondary/4 blur-[100px] pointer-events-none z-0"></div>
+      {/* NO background gradients, simple, clean layout */}
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -98,21 +96,11 @@ export default function Hero() {
           {/* Left Text Column */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
             
-            {/* Soft Accent Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 dark:bg-secondary/15 text-secondary dark:text-zinc-300 text-[10px] font-semibold tracking-wide mb-6 uppercase shadow-sm border border-border-light dark:border-border-dark animate-none"
-            >
-              <Shield className="h-3 w-3 text-secondary dark:text-zinc-400" />
-              100% Zero-Knowledge & E2EE
-            </motion.div>
-
+            {/* Tagline */}
             <motion.h1
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.05 }}
+              transition={{ duration: 0.5 }}
               className="font-display font-medium text-4xl sm:text-5xl tracking-tight text-text-light dark:text-text-dark leading-[1.15] mb-6"
             >
               The collaboration layer for GitHub.
@@ -121,7 +109,7 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
               className="font-sans text-sm sm:text-base text-text-muted-light dark:text-text-muted-dark max-w-md mb-8 leading-relaxed"
             >
               Communicate, share code, and sync in real time with developers directly inside their profile and repository pages.
@@ -130,7 +118,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
             >
               <a
@@ -146,7 +134,7 @@ export default function Hero() {
               <a
                 id="lnk-how-to-use-hero"
                 href="/welcome/index.html"
-                className="inline-flex items-center justify-center px-6 py-3.5 text-xs font-semibold rounded-lg bg-white dark:bg-zinc-900 text-text-light dark:text-text-dark border border-border-light dark:border-border-dark hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all shadow-sm"
+                className="inline-flex items-center justify-center px-6 py-3.5 text-xs font-semibold rounded-lg bg-white dark:bg-card-dark text-text-light dark:text-text-dark border border-border-light dark:border-border-dark hover:bg-bg-light dark:hover:bg-bg-dark transition-all shadow-sm"
               >
                 How to Use
               </a>
@@ -158,38 +146,38 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.05 }}
               className="relative mx-auto max-w-[38rem] w-full"
             >
               
               {/* Simulated Browser Frame (GitHub page) */}
-              <div className="relative bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark rounded-xl shadow-lg overflow-hidden font-sans flex flex-col transition-colors duration-300">
+              <div className="relative bg-white dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl shadow-lg overflow-hidden font-sans flex flex-col transition-colors duration-300">
                 
                 {/* Browser Top Window Bar */}
-                <div className="bg-[#F6F8FA] dark:bg-zinc-950 px-4 py-2.5 flex items-center border-b border-border-light dark:border-border-dark gap-2">
+                <div className="bg-[#F6F8FA] dark:bg-bg-dark px-4 py-2.5 flex items-center border-b border-border-light dark:border-border-dark gap-2">
                   <div className="flex gap-1.5 shrink-0">
                     <span className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-800 block"></span>
                     <span className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-800 block"></span>
                     <span className="w-2.5 h-2.5 rounded-full bg-zinc-300 dark:bg-zinc-800 block"></span>
                   </div>
-                  <div className="text-[10px] font-mono text-text-muted-light dark:text-text-muted-dark bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark px-3 py-0.5 rounded flex-1 max-w-[15rem] text-center mx-auto truncate select-none">
+                  <div className="text-[10px] font-mono text-text-muted-light dark:text-text-muted-dark bg-white dark:bg-card-dark border border-border-light dark:border-border-dark px-3 py-0.5 rounded flex-1 max-w-[15rem] text-center mx-auto truncate select-none">
                     github.com/octocat
                   </div>
                   <div className="w-14"></div>
                 </div>
 
                 {/* Simulated Content Area: GitHub Profile Page with HitMeUp injected sidebar */}
-                <div className="flex flex-col md:flex-row text-left h-[20rem] bg-white dark:bg-zinc-900 relative overflow-hidden transition-colors duration-300">
+                <div className="flex flex-col md:flex-row text-left h-[20rem] bg-white dark:bg-card-dark relative overflow-hidden transition-colors duration-300">
                   
                   {/* GitHub Layout Content Panel */}
-                  <div className="flex-1 p-4 flex flex-col justify-between overflow-y-auto select-none bg-[#FFFFFF] dark:bg-zinc-900 pr-[14.5rem]">
+                  <div className="flex-1 p-4 flex flex-col justify-between overflow-y-auto select-none bg-white dark:bg-card-dark pr-[14.5rem]">
                     
                     {/* Simulated GitHub Profile Info */}
                     <div>
                       {/* GitHub Top header strip mockup */}
                       <div className="flex items-center gap-2 pb-3 mb-4 border-b border-border-light dark:border-border-dark">
-                        <div className="w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center text-[8px] font-bold text-zinc-500">
-                          🐱
+                        <div className="w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 flex items-center justify-center shrink-0">
+                          <User className="h-3 w-3 text-zinc-500" />
                         </div>
                         <div className="h-2 w-20 bg-zinc-200 dark:bg-zinc-800 rounded"></div>
                         <div className="h-2 w-10 bg-zinc-200 dark:bg-zinc-800 rounded ml-auto"></div>
@@ -197,8 +185,8 @@ export default function Hero() {
 
                       {/* Profile details */}
                       <div className="flex items-start gap-3">
-                        <div className="w-12 h-12 rounded-full bg-zinc-200 dark:bg-zinc-800 shrink-0 border border-border-light dark:border-border-dark flex items-center justify-center text-xl shadow-sm">
-                          🐙
+                        <div className="w-12 h-12 rounded-full bg-zinc-200 dark:bg-zinc-800 shrink-0 border border-border-light dark:border-border-dark flex items-center justify-center shadow-sm">
+                          <User className="h-6 w-6 text-zinc-500" />
                         </div>
                         <div className="flex-1">
                           <h2 className="font-semibold text-xs text-text-light dark:text-text-dark font-display leading-tight">The Octocat</h2>
@@ -209,15 +197,15 @@ export default function Hero() {
 
                       {/* Injected Action Buttons (HitMeUp Custom Extension elements) */}
                       <div className="flex flex-wrap gap-2 mt-4">
-                        <button className="px-2.5 py-1 rounded bg-[#F6F8FA] dark:bg-zinc-800 border border-border-light dark:border-border-dark text-[9px] font-medium text-text-light dark:text-text-dark select-none cursor-default">
+                        <button className="px-2.5 py-1 rounded bg-[#F6F8FA] dark:bg-bg-dark border border-border-light dark:border-border-dark text-[9px] font-medium text-text-light dark:text-text-dark select-none cursor-default">
                           Follow
                         </button>
-                        <button className="px-2.5 py-1 rounded bg-[#F6F8FA] dark:bg-zinc-800 border border-border-light dark:border-border-dark text-[9px] font-medium text-text-light dark:text-text-dark select-none cursor-default">
+                        <button className="px-2.5 py-1 rounded bg-[#F6F8FA] dark:bg-bg-dark border border-border-light dark:border-border-dark text-[9px] font-medium text-text-light dark:text-text-dark select-none cursor-default">
                           Sponsor
                         </button>
                         {/* Injected Secure HitMeUp Button */}
                         <div className="relative group/btn cursor-default">
-                          <span className="flex items-center gap-1 px-2.5 py-1 rounded bg-secondary/15 text-secondary border border-secondary/20 dark:bg-secondary/20 dark:text-zinc-200 text-[9px] font-semibold animate-pulse shadow-sm">
+                          <span className="flex items-center gap-1 px-2.5 py-1 rounded bg-secondary/15 text-secondary border border-secondary/20 dark:bg-secondary/20 dark:text-zinc-200 text-[9px] font-semibold shadow-sm">
                             <Lock className="h-2.5 w-2.5" />
                             Message (Secure)
                           </span>
@@ -233,19 +221,19 @@ export default function Hero() {
 
                       {/* Repository card pins mock */}
                       <div className="grid grid-cols-1 gap-2 mt-3">
-                        <div className="p-2 border border-border-light dark:border-border-dark rounded bg-bg-light/50 dark:bg-zinc-950/20 text-left">
+                        <div className="p-2 border border-border-light dark:border-border-dark rounded bg-bg-light/50 dark:bg-bg-dark/20 text-left">
                           <span className="text-[9px] font-semibold text-accent hover:underline">hello-world</span>
-                          <p className="text-[8px] text-text-muted-light dark:text-text-muted-dark mt-1 leading-normal">My very first repository on GitHub!</p>
+                          <p className="text-[8px] text-text-muted-light dark:text-text-muted-dark mt-1 leading-normal font-sans">My very first repository on GitHub!</p>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Injected E2EE Sidebar Chat Room Panel (The Extension UI) */}
-                  <div className="absolute right-0 top-0 bottom-0 w-[14.5rem] bg-[#FAFAF8] dark:bg-zinc-950 border-l border-border-light dark:border-border-dark flex flex-col z-20 shadow-xl transition-colors duration-300">
+                  {/* Injected E2EE Sidebar Chat Drawer (The Extension UI) */}
+                  <div className="absolute right-0 top-0 bottom-0 w-[14.5rem] bg-[#FAFAF8] dark:bg-bg-dark border-l border-border-light dark:border-border-dark flex flex-col z-20 shadow-xl transition-colors duration-300">
                     
                     {/* Sidebar Header */}
-                    <div className="px-3.5 py-2.5 bg-white dark:bg-zinc-900 border-b border-border-light dark:border-border-dark flex items-center justify-between shrink-0">
+                    <div className="px-3.5 py-2.5 bg-white dark:bg-card-dark border-b border-border-light dark:border-border-dark flex items-center justify-between shrink-0">
                       <div className="flex items-center gap-1.5">
                         <div className="w-2.5 h-2.5 rounded-full bg-secondary flex items-center justify-center text-[5px] font-bold text-white shadow-sm">
                           ✓
@@ -254,15 +242,12 @@ export default function Hero() {
                           octocat (E2EE)
                         </span>
                       </div>
-                      <span className="text-[8px] bg-secondary/15 text-secondary px-1.5 py-0.5 rounded font-bold uppercase tracking-wider scale-90">
-                        Active
-                      </span>
                     </div>
 
                     {/* Messages Window */}
                     <div className="flex-1 p-3.5 flex flex-col gap-3 overflow-y-auto max-h-[14rem] no-scrollbar">
                       
-                      <div className="text-[8px] text-center text-text-muted-light dark:text-text-muted-dark bg-zinc-200/50 dark:bg-zinc-900/60 py-1 px-2 rounded border border-border-light/40 dark:border-border-dark/40 max-w-[85%] mx-auto font-mono flex items-center justify-center gap-1 shadow-sm select-none">
+                      <div className="text-[8px] text-center text-text-muted-light dark:text-text-muted-dark bg-zinc-200/50 dark:bg-zinc-800/60 py-1 px-2 rounded border border-border-light/40 dark:border-border-dark/40 max-w-[85%] mx-auto font-mono flex items-center justify-center gap-1 shadow-sm select-none">
                         <Lock className="h-2 w-2" />
                         ECDH P-256 Tunnel Established
                       </div>
@@ -312,8 +297,8 @@ export default function Hero() {
                     </div>
 
                     {/* Sidebar Input Form */}
-                    <div className="p-2.5 bg-white dark:bg-zinc-900 border-t border-border-light dark:border-border-dark shrink-0">
-                      <div className="bg-bg-light dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded p-1.5 flex gap-1.5 items-center">
+                    <div className="p-2.5 bg-white dark:bg-card-dark border-t border-border-light dark:border-border-dark shrink-0">
+                      <div className="bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded p-1.5 flex gap-1.5 items-center">
                         <input
                           id="mock-chat-input"
                           type="text"

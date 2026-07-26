@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { CheckCircle2, Circle, Milestone, Sparkles, Code2, ShieldCheck, GitMerge } from 'lucide-react';
+import { CheckCircle2, Circle, Sparkles, Code2, ShieldCheck, GitMerge } from 'lucide-react';
 
 const milestones = [
   {
@@ -64,15 +64,11 @@ export default function Roadmap() {
   };
 
   return (
-    <section id="features" className="py-28 sm:py-36 bg-white dark:bg-zinc-900 border-y border-border-light dark:border-border-dark transition-colors duration-300">
+    <section id="features" className="py-28 sm:py-36 bg-white dark:bg-bg-dark border-y border-border-light dark:border-border-dark transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Section Header */}
         <div className="text-left max-w-2xl mb-20">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 dark:bg-zinc-800 text-primary dark:text-zinc-300 text-[10px] font-semibold tracking-wide mb-6 uppercase shadow-sm border border-border-light dark:border-border-dark">
-            <Milestone className="h-3 w-3" />
-            Product Timeline
-          </div>
           <h2 className="font-display font-semibold text-2xl sm:text-3xl tracking-tight text-text-light dark:text-text-dark mb-4">
             Development Roadmap
           </h2>
@@ -87,7 +83,7 @@ export default function Roadmap() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
-          className="relative border-l border-zinc-200 dark:border-zinc-800 ml-4 md:ml-6 flex flex-col gap-16 text-left"
+          className="relative border-l border-border-light dark:border-border-dark ml-4 md:ml-6 flex flex-col gap-16 text-left"
         >
           {milestones.map((milestone, idx) => {
             const StatusIcon = milestone.statusIcon;
@@ -100,17 +96,17 @@ export default function Roadmap() {
                 className="relative pl-8 md:pl-10 group"
               >
                 {/* Timeline node dot indicator */}
-                <div className="absolute -left-3.5 top-0 w-7 h-7 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center transition-colors group-hover:border-zinc-400 dark:group-hover:border-zinc-600 shadow-sm z-10">
+                <div className="absolute -left-3.5 top-0 w-7 h-7 rounded-full bg-white dark:bg-bg-dark border border-border-light dark:border-border-dark flex items-center justify-center transition-colors group-hover:border-border-light dark:group-hover:border-border-dark shadow-sm z-10">
                   <StatusIcon className={`h-3 w-3 ${milestone.status === 'Completed' ? 'text-emerald-500 fill-emerald-500/20' : milestone.status === 'In Progress' ? 'text-amber-500' : 'text-zinc-300 dark:text-zinc-700'}`} />
                 </div>
 
                 {/* Card Container */}
                 <div
                   id={`card-roadmap-${idx}`}
-                  className="bg-bg-light/40 dark:bg-zinc-950/20 hover:bg-white dark:hover:bg-zinc-950 border border-border-light dark:border-border-dark hover:border-zinc-300 dark:hover:border-zinc-700 rounded-2xl p-6 md:p-8 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col md:flex-row gap-6 items-start"
+                  className="bg-bg-light/40 dark:bg-card-dark/20 hover:bg-white dark:hover:bg-card-dark border border-border-light dark:border-border-dark hover:border-zinc-300 dark:hover:border-zinc-700 rounded-2xl p-6 md:p-8 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col md:flex-row gap-6 items-start"
                 >
                   {/* Phase Icon Banner */}
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark flex items-center justify-center shrink-0 shadow-sm text-primary dark:text-zinc-300 transition-colors duration-300 group-hover:border-zinc-300 dark:group-hover:border-zinc-600">
+                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-card-dark border border-border-light dark:border-border-dark flex items-center justify-center shrink-0 shadow-sm text-primary dark:text-zinc-300 transition-colors duration-300 group-hover:border-border-light dark:group-hover:border-border-dark">
                     <Icon className="h-5 w-5" strokeWidth={1.5} />
                   </div>
 

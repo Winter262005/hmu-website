@@ -93,7 +93,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
           ? { type: 'spring', stiffness: 220, damping: 32, mass: 1 }
           : { type: 'spring', stiffness: 220, damping: 32, mass: 1, when: 'beforeChildren' }
         }
-        className="pointer-events-auto relative bg-white/95 dark:bg-zinc-900/95 backdrop-blur-xl overflow-hidden"
+        className="pointer-events-auto relative bg-white/95 dark:bg-bg-dark/95 backdrop-blur-xl overflow-hidden"
         style={{ willChange: 'width, border-radius, height, box-shadow, margin-top' }}
       >
 
@@ -161,7 +161,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
             className="w-10 h-10 rounded-lg flex items-center justify-center
                        text-zinc-400 dark:text-zinc-500
                        hover:text-zinc-700 dark:hover:text-zinc-200
-                       hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                       hover:bg-bg-light dark:hover:bg-card-dark transition-colors"
             aria-label="Toggle dark mode"
           >
             {darkMode ? <Sun className="h-[19px] w-[19px]" /> : <Moon className="h-[19px] w-[19px]" />}
@@ -175,7 +175,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
             className="inline-flex items-center px-4 py-2 rounded-lg
                        text-[14px] font-semibold whitespace-nowrap
                        bg-zinc-900 hover:bg-zinc-700 text-white
-                       dark:bg-white dark:hover:bg-zinc-100 dark:text-zinc-900
+                       dark:bg-white dark:hover:bg-bg-light dark:text-zinc-900
                        transition-colors shadow-sm"
           >
             Install free

@@ -53,7 +53,7 @@ export default function FAQ() {
             return (
               <div
                 key={idx}
-                className="bg-white dark:bg-zinc-900 border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm transition-colors"
+                className="bg-white dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm transition-colors"
               >
                 <button
                   id={`btn-faq-item-${idx}`}

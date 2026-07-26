@@ -32,7 +32,7 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="bg-white dark:bg-zinc-900 border-t border-border-light dark:border-border-dark py-20 transition-colors duration-300">
+    <footer id="contact" className="bg-white dark:bg-card-dark border-t border-border-light dark:border-border-dark py-20 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-left">
@@ -40,7 +40,7 @@ export default function Footer() {
           {/* Logo Column */}
           <div className="flex flex-col items-start">
             <a id="lnk-brand-footer" href="#" className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-[#0F172A] dark:bg-zinc-800 rounded-lg flex items-center justify-center text-white text-[9px] font-bold tracking-wider shrink-0 shadow-sm">
+              <div className="w-8 h-8 bg-[#0F172A] dark:bg-card-dark rounded-lg flex items-center justify-center text-white text-[9px] font-bold tracking-wider shrink-0 shadow-sm">
                 HMU
               </div>
               <span className="font-display font-semibold text-lg tracking-tight text-text-light dark:text-text-dark">
@@ -109,7 +109,7 @@ export default function Footer() {
                   placeholder="Enter email..."
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-zinc-50 dark:bg-zinc-950 border border-border-light dark:border-border-dark rounded-lg px-3 py-2 text-xs text-text-light dark:text-text-dark focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition-colors"
+                  className="flex-1 bg-bg-light dark:bg-bg-dark border border-border-light dark:border-border-dark rounded-lg px-3 py-2 text-xs text-text-light dark:text-text-dark focus:outline-none focus:border-zinc-400 dark:focus:border-zinc-600 transition-colors"
                 />
                 <button
                   id="btn-newsletter-subscribe"
