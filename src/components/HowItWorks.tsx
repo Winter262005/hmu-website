@@ -23,11 +23,11 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="py-28 sm:py-36 bg-white dark:bg-zinc-900 border-b border-border-light dark:border-border-dark transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+    <section className="py-20 md:py-16 md:min-h-screen md:flex md:flex-col md:justify-center bg-white dark:bg-card-dark border-b border-border-light dark:border-border-dark transition-colors duration-300">
+      <div className="w-full max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Section Header */}
-        <div className="text-left max-w-2xl mb-20">
+        <div className="text-left max-w-2xl mb-12">
           <h2 className="font-display font-semibold text-2xl sm:text-3xl tracking-tight text-text-light dark:text-text-dark mb-4">
             How HitMeUp Works
           </h2>

@@ -33,11 +33,11 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-28 sm:py-36 bg-[#FAFAF8] dark:bg-bg-dark border-b border-border-light dark:border-border-dark transition-colors duration-300">
-      <div className="max-w-4xl mx-auto px-6 sm:px-8">
+    <section id="faq" className="py-20 md:py-16 md:min-h-screen md:flex md:flex-col md:justify-center bg-white dark:bg-card-dark border-b border-border-light dark:border-border-dark transition-colors duration-300">
+      <div className="w-full max-w-4xl mx-auto px-6 sm:px-8">
         
         {/* Section Header */}
-        <div className="text-left max-w-2xl mb-16">
+        <div className="text-left max-w-2xl mb-10">
           <h2 className="font-display font-semibold text-2xl sm:text-3xl tracking-tight text-text-light dark:text-text-dark mb-4">
             Frequently Asked Questions
           </h2>

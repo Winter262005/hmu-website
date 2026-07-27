@@ -93,7 +93,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
           ? { type: 'spring', stiffness: 220, damping: 32, mass: 1 }
           : { type: 'spring', stiffness: 220, damping: 32, mass: 1, when: 'beforeChildren' }
         }
-        className="pointer-events-auto relative bg-white/95 dark:bg-bg-dark/95 backdrop-blur-xl overflow-hidden"
+        className="pointer-events-auto relative bg-white/90 dark:bg-card-dark/90 backdrop-blur-xl border border-border-light dark:border-border-dark overflow-hidden"
         style={{ willChange: 'width, border-radius, height, box-shadow, margin-top' }}
       >
 

@@ -86,11 +86,11 @@ export default function Hero() {
   }, [step]);
 
   return (
-    <section className="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 md:pt-44 md:pb-36 bg-bg-light dark:bg-bg-dark transition-colors duration-300">
+    <section className="relative overflow-hidden pt-24 pb-16 md:min-h-screen md:flex md:flex-col md:justify-center bg-bg-light dark:bg-bg-dark transition-colors duration-300">
       
       {/* NO background gradients, simple, clean layout */}
 
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
+      <div className="w-full max-w-6xl mx-auto px-6 sm:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Text Column */}

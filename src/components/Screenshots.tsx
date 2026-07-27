@@ -205,11 +205,11 @@ export default function Screenshots() {
   };
 
   return (
-    <section id="screenshots" className="py-28 sm:py-36 bg-bg-light dark:bg-bg-dark border-b border-border-light dark:border-border-dark transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+    <section id="screenshots" className="py-20 md:py-16 md:min-h-screen md:flex md:flex-col md:justify-center bg-bg-light dark:bg-bg-dark border-b border-border-light dark:border-border-dark transition-colors duration-300">
+      <div className="w-full max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-20">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
           <div className="text-left max-w-2xl">
             <h2 className="font-display font-semibold text-2xl sm:text-3xl tracking-tight text-text-light dark:text-text-dark mb-4">
               Integrated Seamlessly Inside GitHub

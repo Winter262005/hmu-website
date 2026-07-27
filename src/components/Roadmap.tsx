@@ -6,45 +6,53 @@ const milestones = [
     phase: 'Phase 1: Foundation',
     time: 'Q1 2026',
     status: 'Completed',
-    statusColor: 'text-emerald-500 bg-emerald-500/10 border-emerald-500/20',
+    statusColor: 'text-success bg-success/10 border-success/20',
     statusIcon: CheckCircle2,
     icon: ShieldCheck,
     title: 'Secure Direct Messaging',
     description: 'Released the core browser extension with local key generation, cryptographic ECDH tunnels, AES-GCM encrypted DMs, and secure local PIN vault backup.',
-    items: ['ECDH P-256 secure session agreements', 'AES-256-GCM DM encryption', 'Chrome Web Store official release', 'Vault backup PIN security (600k iterations PBKDF2)']
+    items: ['ECDH P-256 secure session agreements', 'AES-256-GCM DM encryption', 'Chrome Web Store official release', 'Vault backup PIN security (600k iterations PBKDF2)'],
+    iconColor: 'text-success',
+    iconBg: 'bg-success/5 border-success/15'
   },
   {
     phase: 'Phase 2: Group Channels',
     time: 'Q2 2026',
     status: 'In Progress',
-    statusColor: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
+    statusColor: 'text-gold bg-gold/10 border-gold/20',
     statusIcon: Circle,
     icon: GitMerge,
     title: 'Repository Chats & Sync',
     description: 'Developing automated repository chat room generation. Connect with contributors in rooms created dynamically based on code repositories.',
-    items: ['Auto-generation of repo channels', 'Collaborator list syncing', 'Markdown chat syntax rendering', 'Typing indicator synchronization']
+    items: ['Auto-generation of repo channels', 'Collaborator list syncing', 'Markdown chat syntax rendering', 'Typing indicator synchronization'],
+    iconColor: 'text-gold',
+    iconBg: 'bg-gold/5 border-gold/15'
   },
   {
     phase: 'Phase 3: Deep Integrations',
     time: 'Q3 2026',
     status: 'Upcoming',
-    statusColor: 'text-zinc-500 bg-zinc-500/10 border-zinc-500/20 dark:text-zinc-400',
+    statusColor: 'text-lavender bg-lavender/10 border-lavender/20',
     statusIcon: Circle,
     icon: Code2,
     title: 'Interactive Dev Cards',
     description: 'Integrating rich preview cards for issues, commits, and pull requests directly in-chat. Allowing developers to review and interact without leaving the window.',
-    items: ['Rich PR and Issue interactive previews', 'Inline code snippet compilation SDK', 'Custom workspace styling & Theme SDK', 'Group key rotation updates']
+    items: ['Rich PR and Issue interactive previews', 'Inline code snippet compilation SDK', 'Custom workspace styling & Theme SDK', 'Group key rotation updates'],
+    iconColor: 'text-lavender',
+    iconBg: 'bg-lavender/5 border-lavender/15'
   },
   {
     phase: 'Phase 4: Advanced Utilities',
     time: 'Q4 2026',
     status: 'Upcoming',
-    statusColor: 'text-zinc-500 bg-zinc-500/10 border-zinc-500/20 dark:text-zinc-400',
+    statusColor: 'text-terracotta bg-terracotta/10 border-terracotta/20',
     statusIcon: Circle,
     icon: Sparkles,
     title: 'Enterprise & Security Sync',
     description: 'Rolling out security analysis overlays, offline message syncing via local vault queues, and enterprise-grade repository compliance integrations.',
-    items: ['AI-powered code vulnerability alerts', 'Offline vault queues for message history', 'Compliance auditing and team metrics']
+    items: ['AI-powered code vulnerability alerts', 'Offline vault queues for message history', 'Compliance auditing and team metrics'],
+    iconColor: 'text-terracotta',
+    iconBg: 'bg-terracotta/5 border-terracotta/15'
   }
 ];
 
@@ -64,11 +72,11 @@ export default function Roadmap() {
   };
 
   return (
-    <section id="features" className="py-28 sm:py-36 bg-white dark:bg-bg-dark border-y border-border-light dark:border-border-dark transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+    <section id="features" className="py-20 md:py-16 md:min-h-screen md:flex md:flex-col md:justify-center bg-white dark:bg-card-dark border-y border-border-light dark:border-border-dark transition-colors duration-300">
+      <div className="w-full max-w-6xl mx-auto px-6 sm:px-8">
         
         {/* Section Header */}
-        <div className="text-left max-w-2xl mb-20">
+        <div className="text-left max-w-2xl mb-8">
           <h2 className="font-display font-semibold text-2xl sm:text-3xl tracking-tight text-text-light dark:text-text-dark mb-4">
             Development Roadmap
           </h2>
@@ -83,7 +91,7 @@ export default function Roadmap() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
-          className="relative border-l border-border-light dark:border-border-dark ml-4 md:ml-6 flex flex-col gap-16 text-left"
+          className="relative border-l border-border-light dark:border-border-dark ml-4 md:ml-6 flex flex-col gap-6 text-left"
         >
           {milestones.map((milestone, idx) => {
             const StatusIcon = milestone.statusIcon;
@@ -97,7 +105,7 @@ export default function Roadmap() {
               >
                 {/* Timeline node dot indicator */}
                 <div className="absolute -left-3.5 top-0 w-7 h-7 rounded-full bg-white dark:bg-bg-dark border border-border-light dark:border-border-dark flex items-center justify-center transition-colors group-hover:border-border-light dark:group-hover:border-border-dark shadow-sm z-10">
-                  <StatusIcon className={`h-3 w-3 ${milestone.status === 'Completed' ? 'text-emerald-500 fill-emerald-500/20' : milestone.status === 'In Progress' ? 'text-amber-500' : 'text-zinc-300 dark:text-zinc-700'}`} />
+                  <StatusIcon className={`h-3 w-3 ${milestone.status === 'Completed' ? 'text-success fill-success/20' : milestone.status === 'In Progress' ? 'text-gold' : 'text-zinc-300 dark:text-zinc-700'}`} />
                 </div>
 
                 {/* Card Container */}
@@ -106,7 +114,7 @@ export default function Roadmap() {
                   className="bg-bg-light/40 dark:bg-card-dark/20 hover:bg-white dark:hover:bg-card-dark border border-border-light dark:border-border-dark hover:border-zinc-300 dark:hover:border-zinc-700 rounded-2xl p-6 md:p-8 transition-all duration-300 shadow-sm hover:shadow-md flex flex-col md:flex-row gap-6 items-start"
                 >
                   {/* Phase Icon Banner */}
-                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-card-dark border border-border-light dark:border-border-dark flex items-center justify-center shrink-0 shadow-sm text-primary dark:text-zinc-300 transition-colors duration-300 group-hover:border-border-light dark:group-hover:border-border-dark">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 shadow-sm transition-colors duration-300 border ${milestone.iconBg} ${milestone.iconColor}`}>
                     <Icon className="h-5 w-5" strokeWidth={1.5} />
                   </div>
 
@@ -135,7 +143,7 @@ export default function Roadmap() {
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs">
                       {milestone.items.map((item, itemIdx) => (
                         <li key={itemIdx} className="flex items-start gap-2 text-text-light dark:text-text-dark/95">
-                          <CheckCircle2 className={`h-3.5 w-3.5 mt-0.5 shrink-0 ${milestone.status === 'Completed' ? 'text-emerald-500' : 'text-zinc-300 dark:text-zinc-700'}`} />
+                          <CheckCircle2 className={`h-3.5 w-3.5 mt-0.5 shrink-0 ${milestone.status === 'Completed' ? 'text-success' : 'text-zinc-300 dark:text-zinc-700'}`} />
                           <span>{item}</span>
                         </li>
                       ))}

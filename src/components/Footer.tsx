@@ -32,7 +32,7 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="bg-white dark:bg-card-dark border-t border-border-light dark:border-border-dark py-20 transition-colors duration-300">
+    <footer id="contact" className="bg-bg-light dark:bg-bg-dark border-t border-border-light dark:border-border-dark py-20 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
         
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-left">

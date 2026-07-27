@@ -8,11 +8,14 @@
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  /* Muted Dusty Color Palette V2 */
-  --color-primary: #334155;      /* Primary Slate Gray */
-  --color-secondary: #5F7065;    /* Sage Green */
-  --color-accent: #5C7CFA;       /* Soft Blue Accent */
-  --color-success: #16A34A;      /* Success Green */
+  /* Muted Dusty Color Palette V3 - Diversified & Solid Only */
+  --color-primary: #344256;      /* Muted Navy Slate */
+  --color-secondary: #5F7065;    /* Muted Sage Green */
+  --color-accent: #7889A4;       /* Muted Slate Blue */
+  --color-terracotta: #A56F61;   /* Muted Terracotta / Rust */
+  --color-lavender: #8E7FA0;     /* Muted Lavender / Purple */
+  --color-gold: #C29958;         /* Muted Gold / Ochre */
+  --color-success: #5D8E6F;      /* Muted Success Green */
   
   --color-bg-light: #FAFAF8;     /* Off-White Background */
   --color-card-light: #FFFFFF;   /* Pure White Surface */
@@ -91,6 +94,4 @@
   scrollbar-width: none;
 }
 
-section {
-  scroll-margin-top: 6rem;
-}
+
