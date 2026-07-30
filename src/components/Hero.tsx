@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Lock, User, Send } from 'lucide-react';
+import { useExtensionUrl } from '../hooks/useExtensionUrl';
 
 interface Message {
   id: number;
@@ -45,6 +46,7 @@ const scenario = [
 ];
 
 export default function Hero() {
+  const extensionUrl = useExtensionUrl();
   // Chat typing simulation states
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
@@ -123,7 +125,7 @@ export default function Hero() {
             >
               <a
                 id="lnk-install-chrome-hero"
-                href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo"
+                href={extensionUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-6 py-3.5 text-xs font-semibold rounded-lg bg-primary hover:bg-primary/95 text-white dark:bg-text-dark dark:hover:bg-text-dark/95 dark:text-zinc-950 transition-colors shadow-sm gap-2"

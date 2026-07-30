@@ -223,7 +223,7 @@
         <a href="index.html#features" class="nav-item">Features</a>
         <a href="index.html#pricing" class="nav-item">Pricing</a>
         <a href="privacy.html" class="nav-item active">Privacy Policy</a>
-        <a href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo" target="_blank" rel="noopener noreferrer" class="btn-header">Install Extension</a>
+        <a id="lnk-privacy-install" href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo" target="_blank" rel="noopener noreferrer" class="btn-header">Install Extension</a>
       </nav>
     </div>
   </header>
@@ -281,5 +281,18 @@
     </div>
   </footer>
 
+  <script>
+    (function() {
+      var userAgent = window.navigator.userAgent.toLowerCase();
+      var isFirefox = userAgent.indexOf('firefox') > -1 || userAgent.indexOf('gecko/') > -1;
+      var isChromium = userAgent.indexOf('chrome') > -1 || userAgent.indexOf('chromium') > -1;
+      if (isFirefox && !isChromium) {
+        var installBtn = document.getElementById('lnk-privacy-install');
+        if (installBtn) {
+          installBtn.href = 'https://addons.mozilla.org/en-US/firefox/addon/hitmeup-for-github/';
+        }
+      }
+    })();
+  </script>
 </body>
 </html>

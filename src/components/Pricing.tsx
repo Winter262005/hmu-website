@@ -1,4 +1,5 @@
 import { Check, Clock } from 'lucide-react';
+import { useExtensionUrl } from '../hooks/useExtensionUrl';
 
 const freeFeatures = [
   'Unlimited Direct Messaging',
@@ -18,6 +19,7 @@ const proFeatures = [
 ];
 
 export default function Pricing() {
+  const extensionUrl = useExtensionUrl();
   return (
     <section id="pricing" className="py-20 md:py-16 md:min-h-screen md:flex md:flex-col md:justify-center bg-bg-light dark:bg-bg-dark border-b border-border-light dark:border-border-dark transition-colors duration-300">
       <div className="w-full max-w-6xl mx-auto px-6 sm:px-8">
@@ -59,7 +61,7 @@ export default function Pricing() {
             <div className="mt-10">
               <a
                 id="btn-pricing-free-start"
-                href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo"
+                href={extensionUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold rounded-lg bg-bg-light dark:bg-bg-dark text-text-light dark:text-text-dark hover:bg-border-light dark:hover:bg-border-dark transition-colors"

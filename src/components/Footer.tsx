@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { useExtensionUrl } from '../hooks/useExtensionUrl';
 
 export default function Footer() {
+  const extensionUrl = useExtensionUrl();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -68,7 +70,7 @@ export default function Footer() {
               <li>
                 <a
                   id="lnk-footer-install"
-                  href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo"
+                  href={extensionUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-text-muted-light dark:text-text-muted-dark hover:text-text-light dark:hover:text-text-dark transition-colors font-medium"

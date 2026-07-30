@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import { Sun, Moon } from 'lucide-react';
+import { useExtensionUrl } from '../hooks/useExtensionUrl';
 
 interface NavbarProps {
   darkMode: boolean;
@@ -56,6 +57,7 @@ const wordmarkVariants: Variants = {
 };
 
 export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
+  const extensionUrl = useExtensionUrl();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -169,7 +171,7 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
 
           <a
             id="lnk-install-chrome-nav"
-            href="https://chromewebstore.google.com/detail/hitmeup-for-github/kceaihfcmciaaaodlanhkfkahjggncpo"
+            href={extensionUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-4 py-2 rounded-lg
